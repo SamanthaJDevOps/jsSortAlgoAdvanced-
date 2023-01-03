@@ -1,26 +1,35 @@
 # Pseudo code algo de tri
 
-## Tri par le centre
+## Phrases
 
-***Idée:***  Parcourir un tableau une première fois additionner toutes les valeurs et diviser le total par le nombre de cases: obtention de la moyenne.
+### tri par insertion
 
-à partir de ce chiffre , déterminer un premier tri en disant que toutes les valeurs en dessous de la moyenne ( moyenne comprise ) vont dans les premieres cases du tableau et toutes les valeurs au dessus dans la suite du tableau
+Il s'agit d'un tri qui s'effectue dans le sens croissant des indices du tableau
 
-réiterer jusqu'a ce que les sous tableau ne fasse que 2 cases et que ceux ci soient ordonnés.
+A chaque case, la valeur de la case courante est comparée à la case current+1. si la valeur de la case courante est plus elevée alors elles échangent de place et l'anciennement current+1 est maintenant comparé à toutes les cases précédentes.
+le tableau derrière la tête de lecture est trié et ne connait pas les futurs valeurs à triés.
 
-***Pseudo-code:***
+### tri par selection
 
-TAILLE <- longueur de tableauValeurs
+Il s'agit d'un tri qui parcours le tableau entièrement autant de fois qu'il y a de cases.
+A chaque tour, on garde en mémoire la valeur la plus petite afin qu'en fin de course cette case minimal soit placée en début de tableau.
 
-Découper le tableau en 2 (arrondi) jusqu'à avoir des tableaux de 2 cases (ou 1 si impair)
+### tri a bulles
 
-dans ces minis tableaux, comparer les valeurs à l'indice 0 et 1 et mettre le pls petit à l'indice 0.
+Il s'agit d'un tri qui parcours entièrement le tableau plusieurs fois
+la condition d'arret est qu'il n'y ai plus de changements sur un tour complet de tableau.
+A chaque parcours de tableau les valeurs de la case n et n+1 sont comparés et échangés si besoin.
 
-Regroupement:
- a chaque regroupement comparer tab1 à l'indice 0 et tab2 à l'indice 0
+### tri de shell
 
- le plus petit prend la place
+Il s'agit d'un tri en "plusieurs étapes"
 
-si le plus petit appartenais à tab1 , alors le plus petit retenu est comparer a tab2[1]; le plus petit des deux est retenu
-sinon si le plus petit appartenais à tab2 , alors le plus petit retenu est comparer a tab1[1]; le plus petit des deux est retenu
+C'est un tri qui tri par ordre de grandeur puis qui s'affine tour à tour.
+pour cela, ce sont les valeurs de chaque côté du tableau qui sont comparés (grace à l'écart maximal).
 
+### tri par tas
+
+Il s'agit de créer une arborescence où la racine est la valeur la plus élevés et les enfants les plus lointains les plus petites valeurs.
+les comparaisons s'effectuent entre parents et enfants et on remonte le tableau des enfants au parent.
+
+Une fois fait , le parent racine est placé en fin de tableau et on recommence avec un tableau plus court de 1.
