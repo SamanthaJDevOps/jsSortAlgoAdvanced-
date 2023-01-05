@@ -260,9 +260,8 @@ function axios(){
             console.log(error);
         });
 
-//AIzaSyCnX7DC_Oq9WzadhndLamNoJjLWVgpHFJI
 
-//'https://maps.googleapis.com/maps/api/distancematrix/json?origins=45.166672%2C5.71667&destinations=45.764043%2C4.835659&key=AIzaSyCnX7DC_Oq9WzadhndLamNoJjLWVgpHFJI'
+//'https://maps.googleapis.com/maps/api/distancematrix/json?origins=45.166672%2C5.71667&destinations=45.764043%2C4.835659&key='
 
 }
 
