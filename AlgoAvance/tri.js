@@ -1,10 +1,11 @@
+
 let tab = [3,9,7,1,6,2,8,4];
 const length = tab.length;
 
 // swap function
 function swap(tab,i,j){
-    valI = tab[i];
-    valJ = tab[j];
+    let valI = tab[i];
+    let valJ = tab[j];
 
     tab[i] = valJ;
     tab[j] = valI;
@@ -185,4 +186,112 @@ function parentChildPremutation( tab, i ){
     }
 }
 
+// quick sort
+
+function quickSort(tab, first, last){
+
+    if(first < last){
+        let pivot = tab[last];
+        pivot = partitionner(tab, first, last, pivot);
+        quickSort(tab, first, pivot-1);
+        quickSort(tab, pivot+1, last);
+    }
+}
+
+function partitionner(tab, first, last, pivot){
+    swap(tab, pivot, last);
+    let j = first;
+    for(let i=first; i<last-1; i++ ){
+        if(tab[i] <= tab[last]){
+            swap(tab, i, j);
+            j = j+1;
+        }
+    }
+    swap(tab, last,j);
+    return j;
+}
+
+
+//quickSort(tab, 0, length-1);
+//console.log(tab);
+
+// qsort
+
+function qsort( tab, first, last) {
+    if(first < last){
+        let pivot = partition(tab,first,last);
+        qsort(tab, first, pivot-1);
+        qsort(tab,pivot+1, last);
+    }
+}
+
+function partition(tab, first, last){
+    let pivot = tab[last];
+    let i = (first -1);
+    for(let j=first; j <= last-1; j++){
+        if(tab[j] < pivot){
+            i++;
+            swap(tab, i, j);
+        }
+    }
+    swap(tab,i+1, last);
+    return (i+1);
+}
+
+//console.log(tab)
+
+
+function axios(){
+    var axios = require('axios');
+//Grenoble
+    let lon1 = 5.71667;
+    let lat1 = 45.166672 ;
+    var config = {
+        method: 'get',
+        url: 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=45.166672%2C5.71667&destinations=45.764043%2C4.835659&key=AIzaSyCnX7DC_Oq9WzadhndLamNoJjLWVgpHFJI',
+        headers: { }
+    };
+
+    axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+//AIzaSyCnX7DC_Oq9WzadhndLamNoJjLWVgpHFJI
+
+//'https://maps.googleapis.com/maps/api/distancematrix/json?origins=45.166672%2C5.71667&destinations=45.764043%2C4.835659&key=AIzaSyCnX7DC_Oq9WzadhndLamNoJjLWVgpHFJI'
+
+}
+
+
+function mergeSort(tab){
+    if(tab.length <= 1){
+        return tab;
+    }else{
+        let mid = Math.floor(tab.length/2);
+        let leftTab = tab.splice(0,mid);
+        //console.log("left array : "+leftTab);
+        //console.log("right array : "+ tab);
+        return merge(mergeSort(leftTab),mergeSort(tab));
+    }
+}
+
+function merge(leftTab,rightTab){
+    if(leftTab.length === 0){
+        return rightTab;
+    }else if(rightTab.length === 0){
+        return leftTab;
+    }else if(leftTab[0] <= rightTab[0]){
+        let splitA = leftTab.splice(0,1);
+        return splitA.concat(merge(leftTab,rightTab));
+    }else{
+        let splitB = rightTab.splice(0,1);
+        return splitB.concat(merge(leftTab,rightTab));
+    }
+}
+
+//console.log(mergeSort(tab));
 
