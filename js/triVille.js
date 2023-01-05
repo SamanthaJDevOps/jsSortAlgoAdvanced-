@@ -109,8 +109,8 @@ function distanceRoute(/*ville*/){
     let lat2 = 45.764043;
     let lon2 = 4.835659;
 
-    //let urlString = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins='+lat1+'%2C'+lon1+'&destinations='+ville.latitude+'%2C'+ville.longitude+'&key=AIzaSyCnX7DC_Oq9WzadhndLamNoJjLWVgpHFJI'
-    let urlString = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins='+lat1+'%2C'+lon1+'&destinations='+lat2+'%2C'+lon2+'&key=AIzaSyCnX7DC_Oq9WzadhndLamNoJjLWVgpHFJI'
+    //let urlString = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins='+lat1+'%2C'+lon1+'&destinations='+ville.latitude+'%2C'+ville.longitude+'&key='
+    let urlString = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins='+lat1+'%2C'+lon1+'&destinations='+lat2+'%2C'+lon2+'&key='
 
     var config = {
         method: 'get',
